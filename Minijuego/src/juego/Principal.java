@@ -53,12 +53,14 @@ public class Principal extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				try {
-					MiJuego frame = new MiJuego();
-					frame.setVisible(true);
-					dispose();
 					Clip sonido=AudioSystem.getClip();
 					sonido.open(AudioSystem.getAudioInputStream(new File("src/juego/imagenes/ringtones-tema-zelda.wav")));
 					sonido.start();
+					
+					MiJuego frame = new MiJuego(sonido);
+					frame.setVisible(true);
+					dispose();								
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
